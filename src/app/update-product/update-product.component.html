@@ -1,0 +1,18 @@
+<div class="card">
+    <div class="card-header">
+        Product id : {{idProduct}}
+    </div>
+    <div class="card-body" *ngIf="formGroup">
+        <form [formGroup]="formGroup" (ngSubmit)="updateProduct()">
+            <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input formControlName="name" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Price</label>
+                <input formControlName="price" class="form-control">
+            </div>
+            <button class="btn btn-success">Save</button>
+        </form>
+    </div>
+</div>

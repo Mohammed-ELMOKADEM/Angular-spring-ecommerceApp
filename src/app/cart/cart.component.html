@@ -1,0 +1,52 @@
+<ul class="nav nav-pills d-flex flex-column">
+    <li>
+        <button (click)="toggleCart()" class="btn btn-outline-primary" *ngIf="appState.authState.isAuthenticated">
+            Cart 
+            <i class="bi bi-cart"></i> {{this.appState.authState.totalNumberOrders}}
+        </button>
+        <button *ngIf="!appState.authState.isAuthenticated" (click)="login()" class="btn btn-outline-success">
+            Login <i class="bi bi-box-arrow-in-right"></i>
+        </button>
+        <button *ngIf="appState.authState.isAuthenticated" (click)="logout()" class="btn btn-outline-success">   
+            Logout
+            <i class="bi bi-person-circle"></i>
+        </button>
+    </li>
+    <!-- <li *ngIf="isToggle">
+        <div id="cart" class="card">
+            <div class="card-header">
+                Your cart
+            </div>
+            <div class="card-body" *ngFor="let product of appState.cartState.products">
+                {{product.name}} Price $${{product.price}}
+                <button class="btn btn-outline-danger">-</button>
+                0
+                <button class="btn btn-outline-success">+</button> 
+
+                <button class="btn btn-outline-transparent">x</button> 
+            </div>  
+        </div>
+    </li> -->
+    <div class="container" id="cart" *ngIf="isToggle">
+        <div class="shopping-cart">
+          <div class="shopping-cart-header">
+            <i class="fa fa-shopping-cart cart-icon"></i><span class="badge">{{appState.authState.totalNumberOrders}}</span>
+            <div class="shopping-cart-total">
+              <span class="lighter-text">Total:</span>
+              <span class="main-color-text">${{appState.cartState.totalPrice}}</span>
+            </div>
+          </div> <!--end shopping-cart-header -->
+      
+          <ul class="shopping-cart-items" *ngFor="let product of appState.cartState.products">
+            <li class="clearfix">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item1.jpg" alt="item1" />
+              <span class="item-name">{{product.name}}</span>
+              <span class="item-price">${{product.price}}</span>
+              <span class="item-quantity">Quantity: 01</span>
+            </li>
+          </ul>
+      
+          <a href="#" class="button">Checkout</a>
+        </div> <!--end shopping-cart -->
+      </div> <!--end container -->
+</ul>

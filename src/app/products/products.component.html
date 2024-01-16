@@ -1,0 +1,14 @@
+<div class="d-flex flex-row flex-wrap justify-content-around">
+        <div class="card m-2" style="width: 18rem;" *ngFor="let product of products">
+            <img src="../../assets/pic.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title">Product : {{product.name}}</h5>
+            <p class="card-text">Price : {{product.price}}$</p>
+            <div class="p-3 d-flex flex-row justify-content-around" *ngIf="appState.authState.user.role.includes('ADMIN')">
+                <button class="btn btn-outline-primary" (click)="handleUpdate(product)"><i class="bi bi-pencil"></i></button>
+                <button class="btn btn-outline-danger" (click)="handleDelete(product)"><i class="bi bi-trash"></i></button>
+            </div>
+            <button class="btn btn-outline-warning mx-auto" (click)="addToCart(product)">Add to cart</button>
+        </div>
+    </div>
+</div>

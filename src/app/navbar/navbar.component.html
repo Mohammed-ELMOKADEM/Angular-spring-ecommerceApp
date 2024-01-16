@@ -1,0 +1,16 @@
+<nav class="p-3 navbar bg-light bg-gradient text-dark">
+    <ul class="nav nav-pills">
+        <li *ngFor="let action of actions" class="ps-2">
+            <button 
+            class="btn"
+            [ngClass]="currentAction==action?'btn-primary':'btn-outline-primary'" 
+            (click)="setCurrentAction(action)"
+            routerLink={{action.path}}
+            >
+                {{action.name}}
+                <i class="bi bi-{{action.icon}}"></i>
+            </button>
+        </li>
+    </ul>
+    <app-cart></app-cart>
+</nav>

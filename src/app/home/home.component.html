@@ -1,0 +1,6 @@
+<div class="card">
+    <div class="card-body">
+        <h3>Home Component - Welcome to our app</h3> 
+        <h5 *ngIf="appState.authState.user">{{appState.authState.user.role}} : {{appState.authState.user.firstname}} {{appState.authState.user.lastname}}</h5>
+    </div>
+</div>
