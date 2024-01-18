@@ -1,4 +1,9 @@
-<div class="d-flex flex-row flex-wrap justify-content-around">
+<div class="d-flex flex-row flex-wrap justify-content-around" *ngIf="appState.authState.isAuthenticated">
+        <div class="input-group">
+            <span class="border-warning input-group-text bg-warning text-white"><i class="bi bi-search"></i></span>
+            <input type="text" class="form-control border-warning" style="color:#7a7a7a" [(ngModel)] = "keyword">
+            <button class="btn btn-warning text-white" (click)="search()">Search</button>
+        </div>
         <div class="card m-2" style="width: 18rem;" *ngFor="let product of products">
             <img src="../../assets/pic.jpg" class="card-img-top" alt="...">
             <div class="card-body">

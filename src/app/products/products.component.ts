@@ -13,6 +13,7 @@ import { CartService } from '../services/cart.service';
 export class ProductsComponent implements OnInit {
   public products !: Array<Product>;
   public ordersProducts : Product[] = [];
+  public keyword : String ="";
 
   constructor(private productService : ProductService,
     private router:Router,
@@ -27,6 +28,17 @@ export class ProductsComponent implements OnInit {
     this.productService.getProducts().subscribe({
       next: (products:any) =>{
         this.products=products;
+      },
+      error: err =>{
+        console.log(err);
+      }
+    })
+  }
+
+  search() {
+    this.productService.getProductsByKeyword(this.keyword).subscribe({
+      next : products =>{
+        this.products = products as Product[]
       },
       error: err =>{
         console.log(err);

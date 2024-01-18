@@ -16,6 +16,11 @@ export class ProductService{
     return this.http.get("http://localhost:8080/api/products",{headers:this.headers});
   }
 
+  public getProductsByKeyword(keyword:String){ 
+    this.headers = this.appState.authState["headers"];
+    return this.http.get("http://localhost:8080/api/products/search/"+keyword,{headers:this.headers});
+  }
+
   public getProductById(idProduct:number) : Observable<Product>{
     this.headers = this.appState.authState["headers"];
     return this.http.get<Product>("http://localhost:8080/api/products/"+idProduct,{headers:this.headers});

@@ -1,4 +1,4 @@
-<nav class="p-3 navbar bg-light bg-gradient text-dark">
+<!-- <nav class="p-3 navbar bg-light bg-gradient text-dark">
     <ul class="nav nav-pills">
         <li *ngFor="let action of actions" class="ps-2">
             <button 
@@ -13,4 +13,32 @@
         </li>
     </ul>
     <app-cart></app-cart>
-</nav>
+</nav> -->
+
+<nav class="navbar navbar-expand-lg bg-white sticky-top navbar-light p-3 shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="#"><i class="fa-solid fa-shop me-2"></i> <strong>GEAR SHOP</strong></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="mx-auto my-3 d-lg-none d-sm-block d-xs-block">
+      </div>
+      <div class=" collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ms-auto m-3">
+          <li class="nav-item ps-2" *ngFor="let action of actions">
+                <button 
+                class="btn"
+                [ngClass]="currentAction==action?'btn-primary':'btn-outline-primary'" 
+                (click)="setCurrentAction(action)"
+                routerLink={{action.path}}
+                >
+                    {{action.name}}
+                    <i class="bi bi-{{action.icon}}"></i>
+                </button>
+          </li>
+        </ul>
+        <app-cart></app-cart>
+      </div>
+    </div>
+  </nav>

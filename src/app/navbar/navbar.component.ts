@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppStateService } from '../services/app-state.service';
 import { jwtDecode } from 'jwt-decode';
 import { UserService } from '../services/user.service';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,8 +11,8 @@ import { UserService } from '../services/user.service';
 })
 export class NavbarComponent{
   currentAction: any;
-
-  constructor(public appState : AppStateService, private userService : UserService){}
+  keyword : String="";
+  constructor(public appState : AppStateService, private userService : UserService, private productService : ProductService){}
 
   setCurrentAction(action: any) {
     this.currentAction = action;
